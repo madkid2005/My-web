@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home page{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Our E-commerce Site</h1>
+
+    {% if user.is_authenticated and recommended_products %}
+        <h2>Recommended for You</h2>
+        <ul>
+            {% for product in recommended_products %}
+                <li>
+                    <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - {{ product.display_price }} Toman
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>All Products</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - {{ product.display_price }} Toman
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+<!-- In templates/cart/cart_detail.html -->
+<form id="cart-form" method="post" action="{% url 'update_cart' %}">
+    {% csrf_token %}
+    <ul>
+        {% for item in cart.items.all %}
+            <li>
+                {{ item.product.name }} - {{ item.quantity }} x {{ item.product.display_price }} Toman
+                <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1" max="5" data-item-id="{{ item.id }}" class="quantity-input">
+                <a href="{% url 'remove_from_cart' item.id %}">Remove</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p>Total: {{ cart.get_total_price }} Toman</p>
+    
+    <!-- Proceed to Checkout Button -->
+    <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function () {
+                const itemId = this.getAttribute('data-item-id');
+                const newQuantity = this.value;
+
+                // Create a new FormData object
+                const formData = new FormData();
+                formData.append(`quantity_${itemId}`, newQuantity);
+
+                // Send AJAX request to update cart
+                fetch('{% url "update_cart" %}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}' // Add CSRF token
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Optionally, update the cart display or handle success response
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to update cart');
+                    }
+                }).then(data => {
+                    console.log('Cart updated successfully', data);
+                    location.reload(); // Reload to reflect changes
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    });
+</script>

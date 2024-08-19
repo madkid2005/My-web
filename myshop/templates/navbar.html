@@ -1,0 +1,269 @@
+{% load static %}
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-lg-1 d-none d-lg-block">
+        <img class="img-fluid mt-2 ms-2" src="{% static 'img/logo.png'%}" alt="TakKharid">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'main_page' %}">خانه</a>
+            </li>
+            
+            {% if user.is_authenticated %}
+
+                {% if user.is_seller %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'seller_dashboard' %}">داشبرد</a>
+                    </li>
+                {% elif user.is_buyer %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'buyer_dashboard' %}">داشبرد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart_detail' %}">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge badge-pill badge-danger">{{ cart_items_count }}</span>
+                            سبدخرید
+                        </a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link" style="display: inline; cursor: pointer;">Logout</button>
+                    </form>
+                </li>
+
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">ورود</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'seller_signup' %}">ثبت نام فروشندگان</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'buyer_signup' %}">ثبت نام خریداران</a>
+                </li>
+            {% endif %}
+            
+        </ul>
+    </div>
+  
+</nav>
+   -->
+
+   <header>
+    <!-- GESMAT BALAII NAVBAR -->
+    <nav class="border-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-1 d-none d-lg-block" >
+          <img class="w-100 mt-2 ms-2" src="{% static 'img/logo.png'%}" alt="TakKharid" >
+          </div>
+          <div class="col-lg-5 mt-2">
+            <div class="bg-search d-flex rounded-3 justify-content-end highlighted w-100 ms-0 mb-2">
+                <i class="bi bi-search text-secondary px-4 h6 mt-3"></i>
+                <input 
+                    type="search" 
+                    placeholder= "جستجو در تک خریــد " 
+                    class="noborderfocus px-3 w-100 bg-search border-0  rounded-4" 
+                    value=""
+                    id="search-input">
+            </div>
+            <div id="search-suggestions">محبوب‌ترین سرچ‌ها</div>   
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+          <div class="col-4"></div>
+          <div class="col-2 mt-2 d-none d-lg-block ">
+            <button  class="btn btn-outline-info">ورود | ثبت نام </button>
+            
+            <button class="btn btn-outline-info bi bi-cart"></button>
+          </div>
+        </div>
+      </div>
+    <!-- GESMAT PAIINI NAVBAR -->
+    <div id="hovernav" class="container-fluid position-relative">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="d-flex">
+                    <p class="mb-0"><i class="bi bi-list h5 mt-5"></i></p>
+                    <p class="mb-0">دسته بندی کالاها</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="shownav" class="row d-none">
+                <div class="col-lg-2 border-end border-bottom border-start d-flex justify-content-end" style="background-color: rgb(221, 221, 221); max-height: 500px; overflow-y: auto; direction: ltr; ">
+                    <ul style="list-style: none;">
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <li><p>موبایل <i class="bi bi-phone"></i></p></li>
+                        <!-- محصولات بیشتر -->
+                    </ul>
+                </div>
+                <div class="col-lg-5 border-end border-bottom border-start text-start row row-cols-2 row row-cols-4  p-3 d-flex justify-content-end" style="background-color: rgb(241, 241, 241); max-height: 500px; overflow-y: auto; direction: ltr;">
+                    <div >
+
+                        <h5>
+                            گوشی
+                         </h5>
+                         <p>آیفون 1</p>
+                         <p>آیفون 2</p>
+                         <p>آیفون 3</p>
+                         <p>آیفون 4</p>
+                         <p>آیفون 5</p>
+                         <p>آیفون 6</p>
+                         <!-- آیتم‌های بیشتر -->
+                     </div>
+                     <div>
+
+                        <h5>
+                            گوشی
+                         </h5>
+                         <p>آیفون 1</p>
+                         <p>آیفون 2</p>
+                         <p>آیفون 3</p>
+                         <p>آیفون 4</p>
+                         <p>آیفون 5</p>
+                         <p>آیفون 6</p>
+                         <!-- آیتم‌های بیشتر -->
+                     </div>
+                     <div>
+
+                        <h5>
+                            گوشی
+                         </h5>
+                         <p>آیفون 1</p>
+                         <p>آیفون 2</p>
+                         <p>آیفون 3</p>
+                         <p>آیفون 4</p>
+                         <p>آیفون 5</p>
+                         <p>آیفون 6</p>
+                         <!-- آیتم‌های بیشتر -->
+                     </div>
+                     <div>
+
+                        <h5>
+                            گوشی
+                         </h5>
+                         <p>آیفون 1</p>
+                         <p>آیفون 2</p>
+                         <p>آیفون 3</p>
+                         <p>آیفون 4</p>
+                         <p>آیفون 5</p>
+                         <p>آیفون 6</p>
+                         <!-- آیتم‌های بیشتر -->
+                     </div>
+                     <div>
+
+                        <h5>
+                            گوشی
+                         </h5>
+                         <p>آیفون 1</p>
+                         <p>آیفون 2</p>
+                         <p>آیفون 3</p>
+                         <p>آیفون 4</p>
+                         <p>آیفون 5</p>
+                         <p>آیفون 6</p>
+                         <!-- آیتم‌های بیشتر -->
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+   
+    </nav>
+   
+  </header>
+
+<!-- ______Fixed bottom options MOBILE_________ -->
+<div class="fixed-bottom fixed-bottom-options">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-3 d-md-none d-flex flex-column align-items-center option" onclick="changeColor(this)">
+                <span class="text-center">
+                    <i class="bi bi-house h3"></i>
+                </span>
+                <span class="text-colorforbuy"><small><small>صفحه اصلی</small></small></span>
+            </div>
+            <div class="col-3 d-md-none d-flex flex-column align-items-center option" onclick="changeColor(this)">
+                <span class="text-center">
+                    <i class="bi bi-ui-checks-grid text-colorforbuyLow h3"></i>
+                </span>
+                <span class="text-colorforbuy"><small><small>محصولات</small></small></span>
+            </div>
+            <div class="col-3 d-md-none d-flex flex-column align-items-center option" onclick="changeColor(this)">
+                <span class="text-center">
+                    <i class="bi bi-cart h3"></i>
+                </span>
+                <span class="text-colorforbuy"><small><small>سبدخرید</small></small></span>
+            </div>
+            <div class="col-3 d-md-none d-flex flex-column align-items-center option" onclick="changeColor(this)">
+                <span class="text-center">
+                    <i class="bi bi-person-fill h3"></i>
+                </span>
+                <span class="text-colorforbuy"><small><small>پروفایل</small></small></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const hovernav = document.getElementById("hovernav");
+    const shownav = document.getElementById("shownav");
+
+    function shownavbar(){
+        shownav.classList.toggle("d-none");
+    }
+    hovernav.addEventListener("click",shownavbar)
+    function changeColor(element) {
+        // Reset the color and border of all options
+        const options = document.querySelectorAll('.option');
+        options.forEach(opt => {
+            opt.querySelector('i').style.color = '';
+            opt.querySelector('span.text-colorforbuy').style.color = '';
+        });
+
+        // Change the color of the clicked option
+        element.querySelector('i').style.color = 'red';
+        element.querySelector('span.text-colorforbuy').style.color = 'red';
+        
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var dropbtn = document.querySelector('.dropbtn');
+    var dropdownContent = document.querySelector('.dropdown-content');
+
+    dropbtn.addEventListener('click', function() {
+        dropdownContent.classList.toggle('show');
+    });
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+});
+
+</script>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Checkout</h1>
+<form method="post" action="{% url 'checkout' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="shipping_address">Shipping Address</label>
+        <textarea class="form-control" id="shipping_address" name="shipping_address" required></textarea>
+    </div>
+    <p>Total Price: {{ total_price }}</p>
+    <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+</form>
+{% endblock %}

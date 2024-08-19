@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}manage products{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Manage Products</h1>
+        <a href="{% url 'add_product' %}" class="btn btn-primary">Add New Product</a>
+        <ul>
+            {% for product in products %}
+                <li>
+                    {{ product.name }} - {{ product.price }} Toman
+                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                    <a href="{% url 'delete_product' product.id %}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

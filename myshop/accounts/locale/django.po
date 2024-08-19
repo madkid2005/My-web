@@ -1,0 +1,25 @@
+msgid "Hello, world!"
+msgstr "سلام، دنیا!"
+msgid "user"
+msgstr "کاربر"
+
+msgid "address line 1"
+msgstr "خط آدرس ۱"
+
+msgid "address line 2"
+msgstr "خط آدرس ۲"
+
+msgid "city"
+msgstr "شهر"
+
+msgid "state"
+msgstr "استان"
+
+msgid "postal code"
+msgstr "کد پستی"
+
+msgid "country"
+msgstr "کشور"
+
+msgid "is default"
+msgstr "پیش‌فرض است"

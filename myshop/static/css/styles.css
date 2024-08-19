@@ -1,0 +1,225 @@
+/* cart css */
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cart-icon img {
+    width: 24px; /* Adjust the size as needed */
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* massage css */
+.messages {
+    margin: 20px 0;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+}
+
+.alert.fade-out {
+    opacity: 0;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+/* nabbar css */
+/* Navbar container */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar brand/logo */
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #007bff;
+}
+
+/* Navbar links */
+.nav-link {
+    font-size: 1.1em;
+    color: #555555;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+/* MOBILE NAVBAR  */
+.fixed-bottom-options {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f1f1f1;
+    padding: 3px;
+}
+
+/* INPUT SEARCH NAVBAR */
+.bg-search{
+    background-color: rgb(240 240 240)
+}
+
+.noborderfocus {
+    border: none !important;
+    box-shadow: none !important;
+}
+.noborderfocus:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.highlighted {
+    position: relative;
+    z-index: 1000;
+}
+#search-suggestions {
+    display: none;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+body.focused #search-suggestions {
+    display: block;
+}
+
+
+.dropdown-menu {
+    width: 800px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle .bi {
+    margin-right: 8px;
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cart icon with badge */
+.nav-link i {
+    margin-right: 5px;
+}
+
+.badge-danger {
+    background-color: #ff4757;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Responsive Navbar toggler */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 5px 10px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,..."); /* You can customize this icon */
+}
+
+/* Animation for collapse effect */
+.collapse {
+    transition: height 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .navbar-nav {
+        background-color: #f8f9fa;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    
+    .nav-link {
+        font-size: 1.2em;
+    }
+}
+

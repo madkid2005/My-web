@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}orders{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>View Orders</h1>
+        <ul>
+            {% for order in orders %}
+                <li>
+                    Order ID: {{ order.id }} - Status: {{ order.status }} - Total: {{ order.total_price }} Toman
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

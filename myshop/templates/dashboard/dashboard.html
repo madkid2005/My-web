@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} dashboard {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Welcome, {{ seller_profile.store_name }}</h1>
+        <p>Total Sales: {{ total_sales }}</p>
+        <p>Total Revenue: {{ total_revenue }}</p>
+
+        <a href="{% url 'manage_products' %}">Manage Products</a><br>
+        <a href="{% url 'view_orders' %}">View Orders</a><br>
+        <a href="{% url 'update_bank_details' %}">Update Bank Details</a><br>
+    </div>
+
+{% endblock %}

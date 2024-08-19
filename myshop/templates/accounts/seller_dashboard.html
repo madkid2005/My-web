@@ -1,0 +1,17 @@
+<h1>Seller Dashboard</h1>
+<h2>Products</h2>
+<ul>
+    {% for product in products %}
+    <li>{{ product.name }} - {{ product.price }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Orders</h2>
+<ul>
+    {% for order in orders %}
+    <li>{{ order.product.name }} - {{ order.quantity }} - {{ order.status }}
+        <a href="{% url 'manage_order' order.id %}">Manage</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_product' %}">Add Product</a>

@@ -1,0 +1,5 @@
+/* Customize Django admin */
+.model-product .field-color select {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+}

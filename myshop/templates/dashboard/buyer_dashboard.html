@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Buyer Dashboard</h1>
+<p>Welcome, {{ buyer_profile.user.username }}!</p>
+
+<h2>Recent Orders</h2>
+<ul>
+    {% for order in orders %}
+    <li>
+        <a href="{% url 'order_detail' order.id %}">Order #{{ order.id }} - {{ order.total_price }} - {{ order.status }}</a>
+    </li>
+    {% empty %}
+    <li>No recent orders.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'update_buyer_profile' %}">Update Profile</a>
+<a href="{% url 'manage_shipping_addresses' %}">Manage Shipping Addresses</a>
+<a href="{% url 'order_history' %}">View Full Order History</a>
+{% endblock %}
